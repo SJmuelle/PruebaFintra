@@ -97,9 +97,9 @@ public class PruebaTecnica {
             }
         }
         if(encontrado==1){
-            JOptionPane.showMessageDialog(null, "Exitoso \n las letras *soh* aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Exitoso \n Las letras *soh* aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(null, "Fracaso \n las letras *soh* NO aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Fracaso \n Las letras *soh* NO aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
         }
 
     }
