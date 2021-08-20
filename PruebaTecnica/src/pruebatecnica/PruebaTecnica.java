@@ -10,17 +10,38 @@ public class PruebaTecnica {
 
     void Ejercicio1() {
         //se pide la cadena
-        String VectorCadena = JOptionPane.showInputDialog("Favor Digite el vector, separados por coma los elementos \n ejemplo (15,7,2,1)");
+        String cadena = JOptionPane.showInputDialog("Favor Digite el vector, separados por coma los elementos \n ejemplo (15,7,2,1)");
         int permutacion = Integer.parseInt(JOptionPane.showInputDialog("Favor Digite el numero de permutaciones"));
-        //se separa por coma
-        String[] vectorCompleto = VectorCadena.split(",");
-
-        int anterior = 0, i = 0;
-
-        do {
-
-        } while (vectorCompleto.length == i);
-
+        //se separa por coma y se convierte a entero
+        String[] VectorCadena = cadena.split(",");
+        int arrayInicial[] = new int[VectorCadena.length];
+        int arrayResultado[] = new int[VectorCadena.length];
+        for (int i = 0; i < VectorCadena.length; i++) {
+            arrayInicial[i] = Integer.parseInt(VectorCadena[i]);
+        }
+        //se realiza todo el proceso 
+        for (int i = 0; i < permutacion; i++) {
+            int anterior = 0;
+            int siguiente = 0;
+            int actual = 0;
+            for (int j = 0; j < (arrayInicial.length); j++) {
+                actual = arrayInicial[j];
+                if ((j + 1) >= arrayInicial.length) {
+                    siguiente = 0;
+                } else {
+                    siguiente = arrayInicial[j + 1];
+                }
+                if (siguiente == anterior) {
+                    arrayResultado[j] = 0;
+                } else {
+                    arrayResultado[j] = 1;
+                }
+                anterior = actual;
+            }
+            arrayInicial= arrayResultado;
+        }
+        String cadenaFinal = Arrays.toString(arrayInicial);
+        JOptionPane.showMessageDialog(null, cadenaFinal, "Respuesta Funcion 1", JOptionPane.WARNING_MESSAGE);
     }
 
     void Ejercicio2() {
@@ -87,18 +108,18 @@ public class PruebaTecnica {
     void Ejercicio4() {
         String cadena = JOptionPane.showInputDialog("Digite el nombre de la empresa");
         char[] caracteres = cadena.toCharArray();
-        int encontrado=0;
+        int encontrado = 0;
         for (int i = 0; i < caracteres.length; i++) {
             char caracter = caracteres[i];
             if (((caracter == 's') || (caracter == 'S')) && (i < (caracteres.length - 2))) {
                 if (((caracteres[i + 1] == 'o') || (caracteres[i + 1] == 'o')) && ((caracteres[i + 2] == 'h') || (caracteres[i + 2] == 'H'))) {
-                encontrado=1;
+                    encontrado = 1;
                 }
             }
         }
-        if(encontrado==1){
+        if (encontrado == 1) {
             JOptionPane.showMessageDialog(null, "Exitoso \n Las letras *soh* aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Fracaso \n Las letras *soh* NO aparecen en el nombre de la empresa", "Respuesta Funcion 4", JOptionPane.WARNING_MESSAGE);
         }
 
